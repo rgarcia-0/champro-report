@@ -1,0 +1,12 @@
+git config --global user.email "garciaransiel@gmail.com"
+git config --global user.name "Ransiel Garcia"
+C:\Users\Ransiel Garcia\Desktop\champro-report\
+cd Desktop\champro-report
+git config --global user.email "rgarcia@champrosports.com"
+git config --global user.name "Ransiel Garcia"
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/rgarcia-0/champro-report.git
+git push -u origin main
