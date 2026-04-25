@@ -1,0 +1,30 @@
+{
+  "name": "champro-sample-report",
+  "version": "1.0.0",
+  "description": "CHAMPRO Sample Report Dashboard — Ransiel Garcia",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "setup-db": "node src/db/migrate.js",
+    "sync": "node src/sync.js",
+    "scrape": "node src/scraper.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "pg": "^8.11.3",
+    "googleapis": "^140.0.0",
+    "puppeteer": "^21.6.1",
+    "cheerio": "^1.0.0-rc.12",
+    "node-cron": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "compression": "^1.7.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

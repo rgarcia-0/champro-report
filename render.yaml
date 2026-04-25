@@ -1,0 +1,46 @@
+# render.yaml — Deploy to Render.com FREE tier
+# Commit this file to your GitHub repo and connect it to Render
+
+services:
+  # ── Web Service (Node.js) ──────────────────────────────────────
+  - type: web
+    name: champro-sample-report
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+
+      # PostgreSQL — linked from the database below
+      - key: DATABASE_URL
+        fromDatabase:
+          name: champro-db
+          property: connectionString
+
+      # Google Sheets — paste your service account JSON (minified)
+      - key: GOOGLE_SHEET_ID
+        value: 1rFmuB_25AmVBsVpsKWV5FB7v452TSWrkF9k3e_EMyNM
+
+      # CPA credentials — set these in Render dashboard (secret)
+      - key: CPA_USER
+        sync: false
+      - key: CPA_PASS
+        sync: false
+      - key: GOOGLE_SERVICE_ACCOUNT_JSON
+        sync: false
+
+# ── PostgreSQL Database ────────────────────────────────────────
+databases:
+  - name: champro-db
+    region: oregon
+    plan: free          # 1 GB, 90-day expiry on free tier
+    databaseName: champro
+    user: champro_user
